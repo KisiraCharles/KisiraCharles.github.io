@@ -1,276 +1,224 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Kisira Charles | Portfolio</title>
-  <style>
-    /* --- SIMPLE LIGHT THEME --- */
-    :root {
-      --bg: #f8fafc;
-      --card-bg: #ffffff;
-      --text: #1e293b;
-      --text-light: #64748b;
-      --accent: #2563eb;
-      --border: #e2e8f0;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kisira Charles | Premium VPN Reseller</title>
+    <!-- Google Fonts & Font Awesome Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --bg-color: #0f172a;
+            --card-bg: #1e293b;
+            --accent-color: #38bdf8;
+            --accent-hover: #0284c7;
+            --text-color: #f8fafc;
+            --text-muted: #94a3b8;
+        }
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-      font-family: system-ui, -apple-system, sans-serif;
-    }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
 
-    body {
-      background-color: var(--bg);
-      color: var(--text);
-      line-height: 1.6;
-    }
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            padding: 20px;
+        }
 
-    /* --- NAVIGATION --- */
-    nav {
-      max-width: 800px;
-      margin: 0 auto;
-      padding: 1.5rem 1rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      border-bottom: 1px solid var(--border);
-    }
+        .container {
+            max-width: 900px;
+            margin: 40px auto;
+        }
 
-    .brand {
-      font-weight: 700;
-      font-size: 1.1rem;
-    }
+        /* Hero / Profile Section */
+        .profile-card {
+            background: var(--card-bg);
+            border-radius: 20px;
+            padding: 40px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            margin-bottom: 30px;
+        }
 
-    .nav-links button {
-      background: none;
-      border: none;
-      color: var(--text-light);
-      font-size: 0.95rem;
-      margin-left: 1.2rem;
-      cursor: pointer;
-      padding: 0.3rem 0;
-      transition: color 0.2s ease;
-    }
+        .avatar-container {
+            position: relative;
+            width: 150px;
+            height: 150px;
+            margin: 0 auto 20px;
+        }
 
-    .nav-links button.active,
-    .nav-links button:hover {
-      color: var(--accent);
-      border-bottom: 2px solid var(--accent);
-    }
+        .avatar {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid var(--accent-color);
+            box-shadow: 0 0 20px rgba(56, 189, 248, 0.3);
+        }
 
-    /* --- MAIN CONTENT & ANIMATION --- */
-    main {
-      max-width: 800px;
-      margin: 2.5rem auto;
-      padding: 0 1rem;
-    }
+        .profile-card h1 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
 
-    .page {
-      display: none;
-    }
+        .badge {
+            display: inline-block;
+            background: rgba(56, 189, 248, 0.1);
+            color: var(--accent-color);
+            padding: 6px 16px;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+            border: 1px solid rgba(56, 189, 248, 0.2);
+        }
 
-    .page.active {
-      display: block;
-      animation: fadeIn 0.3s ease-in;
-    }
+        .location {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-bottom: 20px;
+        }
 
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(6px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
+        /* Section Styling */
+        .section-title {
+            font-size: 1.4rem;
+            margin-bottom: 20px;
+            color: var(--text-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
 
-    /* --- PROFILE & HERO --- */
-    .hero {
-      display: flex;
-      align-items: center;
-      gap: 2rem;
-      margin-bottom: 3rem;
-      flex-wrap: wrap;
-    }
+        .section-title i {
+            color: var(--accent-color);
+        }
 
-    .profile-photo {
-      width: 110px;
-      height: 110px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 3px solid #ffffff;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-      transition: transform 0.3s ease;
-    }
+        /* Apps Grid */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
 
-    .profile-photo:hover {
-      transform: scale(1.04);
-    }
+        .card {
+            background: var(--card-bg);
+            padding: 25px;
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
 
-    .hero-info h1 {
-      font-size: 2rem;
-      margin-bottom: 0.3rem;
-    }
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent-color);
+        }
 
-    .hero-info p {
-      color: var(--text-light);
-      font-size: 1.05rem;
-    }
+        .card h3 {
+            margin-bottom: 8px;
+            font-size: 1.2rem;
+            color: var(--accent-color);
+        }
 
-    /* --- CARDS & VPN STATS --- */
-    .card {
-      background: var(--card-bg);
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      padding: 1.5rem;
-      margin-bottom: 1.2rem;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-    }
+        .card p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
 
-    .card:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.06);
-    }
+        /* Contact Links */
+        .contact-buttons {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+        }
 
-    .card h3 {
-      font-size: 1.15rem;
-      margin-bottom: 0.4rem;
-    }
+        .btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 14px 20px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 600;
+            color: #fff;
+            transition: opacity 0.2s ease, transform 0.2s ease;
+        }
 
-    .card p {
-      color: var(--text-light);
-      font-size: 0.95rem;
-    }
+        .btn:hover {
+            opacity: 0.9;
+            transform: scale(1.02);
+        }
 
-    /* VPN Speed Highlights */
-    .vpn-badge {
-      display: inline-block;
-      background: #e0e7ff;
-      color: #3730a3;
-      font-size: 0.8rem;
-      font-weight: 600;
-      padding: 0.2rem 0.6rem;
-      border-radius: 4px;
-      margin-bottom: 0.8rem;
-    }
+        .btn-whatsapp { background-color: #25D366; }
+        .btn-telegram { background-color: #0088cc; }
+        .btn-email { background-color: #ea4335; }
 
-    .stats-row {
-      display: flex;
-      gap: 1.5rem;
-      margin-top: 1rem;
-      padding-top: 0.8rem;
-      border-top: 1px solid #f1f5f9;
-    }
-
-    .stat-item span {
-      display: block;
-      font-size: 1.2rem;
-      font-weight: 700;
-      color: var(--accent);
-    }
-
-    .stat-item label {
-      font-size: 0.75rem;
-      color: var(--text-light);
-      text-transform: uppercase;
-    }
-
-    footer {
-      text-align: center;
-      color: var(--text-light);
-      font-size: 0.85rem;
-      margin-top: 4rem;
-      padding-bottom: 2rem;
-    }
-  </style>
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+    </style>
 </head>
 <body>
 
-  <nav>
-    <div class="brand">Kisira Charles</div>
-    <div class="nav-links">
-      <button class="active" onclick="switchTab('home')">Home</button>
-      <button onclick="switchTab('projects')">Projects</button>
-      <button onclick="switchTab('about')">About</button>
+    <div class="container">
+        <!-- Main Profile Header -->
+        <div class="profile-card">
+            <div class="avatar-container">
+                <!-- Replace 'your-photo.jpg' with the actual path or URL to your photo -->
+                <img src="your-photo.jpg" alt="Kisira Charles" class="avatar" onerror="this.src='https://via.placeholder.com/150/1e293b/38bdf8?text=KC'">
+            </div>
+            <h1>Kisira Charles</h1>
+            <span class="badge"><i class="fa-solid fa-shield-halved"></i> Premium VPN Reseller</span>
+            <p class="location"><i class="fa-solid fa-location-dot"></i> Uganda</p>
+            <p style="color: var(--text-muted); max-width: 600px; margin: 0 auto;">
+                Providing high-speed, secure, and reliable premium VPN accounts tailored to keep your connection safe and unrestricted.
+            </p>
+        </div>
+
+        <!-- Supported Apps Section -->
+        <h2 class="section-title"><i class="fa-solid fa-mobile-screen-button"></i> Supported Applications</h2>
+        <div class="grid">
+            <div class="card">
+                <h3>Exotic Fast VIP</h3>
+                <p>High-speed servers optimized for seamless browsing, streaming, and ultra-low latency connection.</p>
+            </div>
+            <div class="card">
+                <h3>HTTP Custom</h3>
+                <p>Secure custom configurations ensuring reliable encryption, stability, and unrestricted network access.</p>
+            </div>
+        </div>
+
+        <!-- Contact Section -->
+        <h2 class="section-title"><i class="fa-solid fa-paper-plane"></i> Get In Touch</h2>
+        <div class="contact-buttons">
+            <a href="https://wa.me/256706422500" target="_blank" class="btn btn-whatsapp">
+                <i class="fa-brands fa-whatsapp fa-lg"></i> WhatsApp
+            </a>
+            <a href="https://t.me/KisiraCharles" target="_blank" class="btn btn-telegram">
+                <i class="fa-brands fa-telegram fa-lg"></i> Telegram
+            </a>
+            <a href="mailto:info.kisiracharles@gmail.com" class="btn btn-email">
+                <i class="fa-solid fa-envelope fa-lg"></i> Email Me
+            </a>
+        </div>
+
+        <footer>
+            <p>&copy; 2026 Kisira Charles. All rights reserved.</p>
+        </footer>
     </div>
-  </nav>
 
-  <main>
-    <!-- PAGE 1: HOME -->
-    <section id="home" class="page active">
-      <div class="hero">
-        <!-- REPLACE WITH YOUR PHOTO FILE/URL -->
-        <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=300&auto=format&fit=crop&q=80" alt="Kisira Charles" class="profile-photo">
-        <div class="hero-info">
-          <h1>Kisira Charles</h1>
-          <p>Web Developer & High-Speed Network Specialist</p>
-        </div>
-      </div>
-
-      <h2>Featured Project</h2>
-      <div class="card" style="margin-top: 1rem;">
-        <span class="vpn-badge">CRAZY FAST NETWORK</span>
-        <h3>High-Speed VPN Infrastructure</h3>
-        <p>Configured ultra-low latency routing servers designed to deliver maximum throughput without throttling.</p>
-        
-        <div class="stats-row">
-          <div class="stat-item">
-            <span>940+ Mbps</span>
-            <label>Download Speed</label>
-          </div>
-          <div class="stat-item">
-            <span>12 ms</span>
-            <label>Avg Ping</label>
-          </div>
-          <div class="stat-item">
-            <span>99.9%</span>
-            <label>Uptime</label>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- PAGE 2: PROJECTS -->
-    <section id="projects" class="page">
-      <h2 style="margin-bottom: 1rem;">All Projects</h2>
-      
-      <div class="card">
-        <h3>VPN Speed Optimization</h3>
-        <p>Custom server node setup yielding incredible bandwidth speeds and encrypted security.</p>
-      </div>
-
-      <div class="card">
-        <h3>Minimalist Portfolio Site</h3>
-        <p>A simple, lightweight light-mode design optimized for speed and readability.</p>
-      </div>
-    </section>
-
-    <!-- PAGE 3: ABOUT -->
-    <section id="about" class="page">
-      <h2 style="margin-bottom: 1rem;">About Me</h2>
-      <div class="card">
-        <p>Hello! I'm Kisira Charles. I focus on building clean, functional, and ultra-fast web and network solutions.</p>
-      </div>
-    </section>
-  </main>
-
-  <footer>
-    &copy; 2026 Kisira Charles
-  </footer>
-
-  <script>
-    function switchTab(pageId) {
-      // Hide all pages
-      document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-      
-      // Remove active tab style
-      document.querySelectorAll('.nav-links button').forEach(btn => btn.classList.remove('active'));
-
-      // Show targeted page
-      document.getElementById(pageId).classList.add('active');
-
-      // Highlight clicked button
-      event.target.classList.add('active');
-    }
-  </script>
 </body>
 </html>
