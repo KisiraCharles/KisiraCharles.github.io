@@ -1,316 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ISP & Tech Portfolio</title>
-  <style>
-    /* Vibrant Color Scheme */
-    :root {
-      --bg: #090d16;
-      --card-bg: #111827;
-      --accent-cyan: #06b6d4;
-      --accent-purple: #8b5cf6;
-      --accent-pink: #ec4899;
-      --text: #f3f4f6;
-      --text-muted: #9ca3af;
-      --border: #1f2937;
-    }
-
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    body {
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-      background-color: var(--bg);
-      color: var(--text);
-      line-height: 1.6;
-      padding: 1.5rem 1rem;
-      overflow-x: hidden;
-    }
-
-    .container {
-      max-width: 900px;
-      margin: 0 auto;
-    }
-
-    /* Gradient Hero & Profile Image */
-    header {
-      text-align: center;
-      padding: 3rem 1rem;
-      position: relative;
-    }
-
-    .profile-img-container {
-      width: 140px;
-      height: 140px;
-      margin: 0 auto 1.5rem auto;
-      border-radius: 50%;
-      padding: 4px;
-      background: linear-gradient(135deg, var(--accent-cyan), var(--accent-purple), var(--accent-pink));
-      animation: pulseGlow 4s infinite alternate;
-    }
-
-    .profile-img {
-      width: 100%;
-      height: 100%;
-      border-radius: 50%;
-      object-fit: cover;
-      background-color: var(--card-bg);
-    }
-
-    h1 {
-      font-size: 2.5rem;
-      font-weight: 800;
-      background: linear-gradient(to right, var(--accent-cyan), var(--accent-pink));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      margin-bottom: 0.5rem;
-    }
-
-    .subtitle {
-      color: var(--accent-cyan);
-      font-size: 1.2rem;
-      font-weight: 600;
-      letter-spacing: 0.05em;
-      margin-bottom: 1rem;
-    }
-
-    .bio {
-      color: var(--text-muted);
-      font-size: 1.05rem;
-      max-width: 650px;
-      margin: 0 auto;
-    }
-
-    /* General Section Styling */
-    section {
-      margin-bottom: 3.5rem;
-    }
-
-    h2 {
-      font-size: 1.6rem;
-      margin-bottom: 1.5rem;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      color: var(--text);
-      border-bottom: 1px solid var(--border);
-      padding-bottom: 0.5rem;
-    }
-
-    /* Grid Layouts */
-    .grid-2 {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 1.5rem;
-    }
-
-    .grid-3 {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 1.2rem;
-    }
-
-    @media (min-width: 640px) {
-      .grid-2 { grid-template-columns: repeat(2, 1fr); }
-      .grid-3 { grid-template-columns: repeat(3, 1fr); }
-    }
-
-    /* Animated Glow Cards */
-    .card {
-      background-color: var(--card-bg);
-      border: 1px solid var(--border);
-      border-radius: 1rem;
-      padding: 1.5rem;
-      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .card:hover {
-      transform: translateY(-5px);
-      border-color: var(--accent-cyan);
-      box-shadow: 0 10px 25px -5px rgba(6, 182, 212, 0.25);
-    }
-
-    .card h3 {
-      color: var(--text);
-      font-size: 1.2rem;
-      margin-bottom: 0.5rem;
-    }
-
-    .card p {
-      color: var(--text-muted);
-      font-size: 0.95rem;
-    }
-
-    .badge {
-      display: inline-block;
-      background: rgba(6, 182, 212, 0.15);
-      color: var(--accent-cyan);
-      font-size: 0.8rem;
-      font-weight: 700;
-      padding: 0.25rem 0.75rem;
-      border-radius: 9999px;
-      margin-bottom: 0.75rem;
-      border: 1px solid rgba(6, 182, 212, 0.3);
-    }
-
-    /* People & Family Images */
-    .person-card {
-      text-align: center;
-    }
-
-    .person-img {
-      width: 90px;
-      height: 90px;
-      border-radius: 50%;
-      object-fit: cover;
-      margin: 0 auto 1rem auto;
-      border: 2px solid var(--accent-purple);
-    }
-
-    /* CTA Button */
-    .btn {
-      display: inline-block;
-      background: linear-gradient(135deg, var(--accent-cyan), var(--accent-purple));
-      color: #fff;
-      font-weight: 700;
-      padding: 0.8rem 1.8rem;
-      border-radius: 0.5rem;
-      text-decoration: none;
-      transition: transform 0.2s, opacity 0.2s;
-      margin-top: 1rem;
-    }
-
-    .btn:hover {
-      opacity: 0.9;
-      transform: scale(1.02);
-    }
-
-    /* Keyframe Animations */
-    @keyframes pulseGlow {
-      0% { box-shadow: 0 0 15px rgba(6, 182, 212, 0.4); }
-      100% { box-shadow: 0 0 30px rgba(236, 72, 153, 0.7); }
-    }
-
-    footer {
-      text-align: center;
-      color: var(--text-muted);
-      font-size: 0.85rem;
-      padding: 2rem 0;
-      border-top: 1px solid var(--border);
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kisira Charles | Network Services</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background-color: #0f172a;
+            color: #e2e8f0;
+            max-width: 600px;
+            margin: 80px auto;
+            padding: 0 20px;
+            line-height: 1.6;
+        }
+        h1 { color: #ffffff; margin-bottom: 5px; }
+        .subtitle { color: #94a3b8; font-size: 0.95rem; margin-top: 0; }
+        .card {
+            background-color: #1e293b;
+            border-radius: 8px;
+            padding: 20px;
+            margin-top: 20px;
+            border: 1px solid #334155;
+        }
+        ul { padding-left: 20px; color: #cbd5e1; }
+        a { color: #38bdf8; text-decoration: none; }
+        a:hover { text-decoration: underline; }
+    </style>
 </head>
 <body>
 
-  <div class="container">
-    
-    <!-- HERO HEADER -->
-    <header>
-      <div class="profile-img-container">
-        <!-- REPLACE LINK BELOW WITH YOUR PROFILE IMAGE URL -->
-        <img src="https://via.placeholder.com/150" alt="Your Name" class="profile-img">
-      </div>
-      <h1>Your Name Here</h1>
-      <p class="subtitle">INTERNET SERVICE PROVIDER & TUNNELING SPECIALIST</p>
-      <p class="bio">
-        Providing accessible, high-speed internet solutions and custom tunneling apps designed to bypass restrictions and connect communities to free, open internet access.
-      </p>
-    </header>
+    <h1>Kisira Charles</h1>
+    <p class="subtitle">Network & Tunneling Services</p>
 
-    <!-- BUSINESS & SERVICES SECTION -->
-    <section>
-      <h2>🌐 Services & ISP Offerings</h2>
-      <div class="grid-2">
-        
-        <div class="card">
-          <span class="badge">POPULAR SERVICE</span>
-          <h3>Custom Tunneling Apps</h3>
-          <p>Specially configured VPN & SSH tunneling applications optimized for zero-rated protocols and fast network speeds.</p>
-        </div>
+    <div class="card">
+        <h3>Overview</h3>
+        <p>Providing network tunneling access, premium protocol setups, and reseller management solutions.</p>
+    </div>
 
-        <div class="card">
-          <span class="badge">FREE INTERNET</span>
-          <h3>Zero-Cost Access Solutions</h3>
-          <p>Providing custom SNI host configurations and payload builds to help users maintain uninterrupted internet connection.</p>
-        </div>
+    <div class="card">
+        <h3>Services</h3>
+        <ul>
+            <li>Custom Protocol Accounts (SSH / V2Ray)</li>
+            <li>Reseller & Sub-Panel Credentials</li>
+            <li>Connection Troubleshooting & Configuration</li>
+        </ul>
+    </div>
 
-        <div class="card">
-          <span class="badge">SUPPORT</span>
-          <h3>Network Configuration</h3>
-          <p>Step-by-step setup assistance for HTTP Custom, HA Tunnel Plus, OpenVPN, and custom Android APK builds.</p>
-        </div>
+    <div class="card">
+        <h3>Contact</h3>
+        <p>Reach out directly for account activation, setups, or panel top-ups:</p>
+        <p>📧 <strong>Email:</strong> <a href="mailto:info.kisiracharles@gmail.com">info.kisiracharles@gmail.com</a></p>
+        <p>💬 <strong>Telegram:</strong> <a href="https://t.me/KisiraCharles" target="_blank">@KisiraCharles</a></p>
+        <p>📱 <strong>WhatsApp:</strong> <a href="https://wa.me/256706422500" target="_blank">0706422500</a></p>
+    </div>
 
-        <div class="card">
-          <span class="badge">COMMUNITY</span>
-          <h3>ISP Community Hub</h3>
-          <p>Join our active Telegram & WhatsApp groups for real-time file updates, tweak releases, and server status monitoring.</p>
-        </div>
-
-      </div>
-      <div style="text-align: center; margin-top: 1.5rem;">
-        <a href="https://t.me/yourusername" target="_blank" class="btn">Connect on Telegram / WhatsApp</a>
-      </div>
-    </section>
-
-    <!-- EDUCATION SECTION -->
-    <section>
-      <h2>🎓 Former School & Background</h2>
-      <div class="card">
-        <h3>Your School / Academy Name</h3>
-        <p style="color: var(--accent-cyan); margin-bottom: 0.5rem;">Graduated / Attended [Years, e.g., 2018 - 2022]</p>
-        <p>Built a strong foundation in computer networking, information technology, and problem-solving, which fueled my journey into networking and ISP service creation.</p>
-      </div>
-    </section>
-
-    <!-- FAMILY & GUARDIANS SECTION -->
-    <section>
-      <h2>❤️ Guardians & Siblings</h2>
-      <p class="bio" style="margin-bottom: 1.5rem; text-align: left;">
-        The key people who supported my journey in technology and business:
-      </p>
-
-      <div class="grid-3">
-        
-        <!-- Guardian 1 -->
-        <div class="card person-card">
-          <img src="https://via.placeholder.com/100" alt="Guardian" class="person-img">
-          <h3>Guardian Name</h3>
-          <p>My Inspiration & Mentor</p>
-        </div>
-
-        <!-- Sibling 1 -->
-        <div class="card person-card">
-          <img src="https://via.placeholder.com/100" alt="Sibling" class="person-img">
-          <h3>Sibling Name</h3>
-          <p>Brother / Sister</p>
-        </div>
-
-        <!-- Sibling 2 -->
-        <div class="card person-card">
-          <img src="https://via.placeholder.com/100" alt="Sibling" class="person-img">
-          <h3>Sibling Name</h3>
-          <p>Brother / Sister</p>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- FOOTER -->
-    <footer>
-      <p>&copy; <span id="year"></span> Your ISP Brand Name. All rights reserved.</p>
-    </footer>
-
-  </div>
-
-  <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
-  </script>
 </body>
 </html>
+
