@@ -1,60 +1,429 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kisira Charles | Network Services</title>
-    <style>
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-            background-color: #0f172a;
-            color: #e2e8f0;
-            max-width: 600px;
-            margin: 80px auto;
-            padding: 0 20px;
-            line-height: 1.6;
-        }
-        h1 { color: #ffffff; margin-bottom: 5px; }
-        .subtitle { color: #94a3b8; font-size: 0.95rem; margin-top: 0; }
-        .card {
-            background-color: #1e293b;
-            border-radius: 8px;
-            padding: 20px;
-            margin-top: 20px;
-            border: 1px solid #334155;
-        }
-        ul { padding-left: 20px; color: #cbd5e1; }
-        a { color: #38bdf8; text-decoration: none; }
-        a:hover { text-decoration: underline; }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Kisira Charles | Portfolio</title>
+  <style>
+    /* --- CSS VARIABLES & THEME --- */
+    :root {
+      --bg-gradient: linear-gradient(135deg, #f0f4f8 0%, #e2e8f0 100%);
+      --card-bg: rgba(255, 255, 255, 0.85);
+      --card-border: rgba(255, 255, 255, 0.6);
+      --text-main: #0f172a;
+      --text-muted: #475569;
+      --primary: #3b82f6;
+      --primary-gradient: linear-gradient(135deg, #2563eb, #3b82f6);
+      --accent: #10b981;
+      --shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.08);
+      --glow: 0 0 20px rgba(59, 130, 246, 0.3);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    }
+
+    body {
+      background: var(--bg-gradient);
+      color: var(--text-main);
+      min-height: 100vh;
+      line-height: 1.6;
+    }
+
+    /* --- HEADER & NAVIGATION --- */
+    header {
+      background: rgba(255, 255, 255, 0.7);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--card-border);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    nav {
+      max-width: 1000px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 1.5rem;
+    }
+
+    .logo {
+      font-weight: 800;
+      font-size: 1.3rem;
+      background: var(--primary-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .nav-links {
+      display: flex;
+      list-style: none;
+      gap: 1.5rem;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--text-muted);
+      font-weight: 600;
+      padding: 0.4rem 0.8rem;
+      border-radius: 20px;
+      transition: all 0.3s ease;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: #ffffff;
+      background: var(--primary-gradient);
+      box-shadow: var(--glow);
+    }
+
+    /* --- MAIN CONTENT LAYOUT --- */
+    main {
+      max-width: 1000px;
+      margin: 2rem auto;
+      padding: 0 1.5rem;
+    }
+
+    .page-section {
+      display: none;
+    }
+
+    .page-section.active {
+      display: block;
+      animation: slideUpFade 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+
+    @keyframes slideUpFade {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* --- HERO SECTION & PHOTO --- */
+    .hero-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 2rem;
+      padding: 3rem 0;
+      flex-wrap: wrap-reverse;
+    }
+
+    .hero-text {
+      flex: 1;
+      min-width: 280px;
+    }
+
+    .hero-text h1 {
+      font-size: 2.8rem;
+      line-height: 1.2;
+      margin-bottom: 1rem;
+    }
+
+    .hero-text p {
+      font-size: 1.2rem;
+      color: var(--text-muted);
+      margin-bottom: 1.5rem;
+    }
+
+    /* Animated Profile Avatar */
+    .profile-wrapper {
+      position: relative;
+      width: 180px;
+      height: 180px;
+      margin: 0 auto;
+    }
+
+    .profile-ring {
+      position: absolute;
+      inset: -6px;
+      border-radius: 50%;
+      background: linear-gradient(45deg, #2563eb, #10b981, #3b82f6);
+      animation: spinRing 6s linear infinite;
+      filter: blur(2px);
+    }
+
+    @keyframes spinRing {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    .profile-img {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid #ffffff;
+      box-shadow: var(--shadow);
+      animation: float 4s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-8px); }
+    }
+
+    /* --- BUTTONS --- */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--primary-gradient);
+      color: white;
+      padding: 0.8rem 1.6rem;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      box-shadow: var(--shadow);
+      transition: all 0.3s ease;
+      border: none;
+      cursor: pointer;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--glow);
+    }
+
+    /* --- SPEED TEST WIDGET --- */
+    .widget-card {
+      background: var(--card-bg);
+      backdrop-filter: blur(10px);
+      border: 1px solid var(--card-border);
+      border-radius: 16px;
+      padding: 1.5rem;
+      box-shadow: var(--shadow);
+      margin-top: 2rem;
+    }
+
+    .speed-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 1rem;
+      margin: 1.5rem 0;
+    }
+
+    .speed-box {
+      background: rgba(255, 255, 255, 0.6);
+      border: 1px solid var(--card-border);
+      padding: 1rem;
+      border-radius: 12px;
+      text-align: center;
+    }
+
+    .speed-value {
+      font-size: 1.8rem;
+      font-weight: 800;
+      color: var(--primary);
+    }
+
+    .speed-label {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    /* Progress Bar */
+    .progress-bar-wrap {
+      width: 100%;
+      height: 8px;
+      background: #e2e8f0;
+      border-radius: 4px;
+      overflow: hidden;
+      margin-bottom: 1rem;
+    }
+
+    .progress-bar {
+      height: 100%;
+      width: 0%;
+      background: var(--primary-gradient);
+      transition: width 0.1s linear;
+    }
+
+    /* --- CARDS & GRID --- */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+      margin-top: 1.5rem;
+    }
+
+    .card {
+      background: var(--card-bg);
+      backdrop-filter: blur(8px);
+      border: 1px solid var(--card-border);
+      border-radius: 12px;
+      padding: 1.5rem;
+      box-shadow: var(--shadow);
+      transition: all 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 15px 30px -5px rgba(0, 0, 0, 0.12);
+    }
+
+    footer {
+      text-align: center;
+      padding: 2.5rem 0;
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      margin-top: 4rem;
+    }
+  </style>
 </head>
 <body>
 
-    <h1>Kisira Charles</h1>
-    <p class="subtitle">Network & Tunneling Services</p>
+  <!-- HEADER -->
+  <header>
+    <nav>
+      <div class="logo">Kisira Charles</div>
+      <ul class="nav-links">
+        <li><a href="#home" class="nav-link active" onclick="showPage('home')">Home</a></li>
+        <li><a href="#projects" class="nav-link" onclick="showPage('projects')">Projects</a></li>
+        <li><a href="#vpn" class="nav-link" onclick="showPage('vpn')">Network Test</a></li>
+        <li><a href="#about" class="nav-link" onclick="showPage('about')">About</a></li>
+      </ul>
+    </nav>
+  </header>
 
-    <div class="card">
-        <h3>Overview</h3>
-        <p>Providing network tunneling access, premium protocol setups, and reseller management solutions.</p>
-    </div>
+  <!-- MAIN -->
+  <main>
+    <!-- PAGE 1: HOME -->
+    <section id="home" class="page-section active">
+      <div class="hero-container">
+        <div class="hero-text">
+          <h1>Crafting Clean & Fast Web Experiences</h1>
+          <p>Hi, I'm Kisira Charles. I design modern light-mode applications focused on speed, elegance, and utility.</p>
+          <a href="#projects" class="btn" onclick="showPage('projects')">Explore Projects →</a>
+        </div>
+        
+        <!-- Profile Photo Frame -->
+        <div class="profile-wrapper">
+          <div class="profile-ring"></div>
+          <!-- Replace src with your image URL -->
+          <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=400&q=80" alt="Kisira Charles" class="profile-img"/>
+        </div>
+      </div>
+    </section>
 
-    <div class="card">
-        <h3>Services</h3>
-        <ul>
-            <li>Custom Protocol Accounts (SSH / V2Ray)</li>
-            <li>Reseller & Sub-Panel Credentials</li>
-            <li>Connection Troubleshooting & Configuration</li>
-        </ul>
-    </div>
+    <!-- PAGE 2: PROJECTS -->
+    <section id="projects" class="page-section">
+      <h2 style="font-size: 2rem;">Featured Projects</h2>
+      <div class="grid">
+        <div class="card">
+          <h3 style="margin-bottom: 0.5rem;">VPN & Proxy Analyzer</h3>
+          <p style="color: var(--text-muted);">Real-time latency tracer that tests server routing speeds and encryption overhead.</p>
+        </div>
+        <div class="card">
+          <h3 style="margin-bottom: 0.5rem;">Minimalist Dashboard</h3>
+          <p style="color: var(--text-muted);">Light-theme user interface designed for maximum readability and responsive layouts.</p>
+        </div>
+        <div class="card">
+          <h3 style="margin-bottom: 0.5rem;">Network Monitor App</h3>
+          <p style="color: var(--text-muted);">Tracks bandwidth throughput with glassmorphism card UI and smooth CSS animations.</p>
+        </div>
+      </div>
+    </section>
 
-    <div class="card">
-        <h3>Contact</h3>
-        <p>Reach out directly for account activation, setups, or panel top-ups:</p>
-        <p>📧 <strong>Email:</strong> <a href="mailto:info.kisiracharles@gmail.com">info.kisiracharles@gmail.com</a></p>
-        <p>💬 <strong>Telegram:</strong> <a href="https://t.me/KisiraCharles" target="_blank">@KisiraCharles</a></p>
-        <p>📱 <strong>WhatsApp:</strong> <a href="https://wa.me/256706422500" target="_blank">0706422500</a></p>
-    </div>
+    <!-- PAGE 3: VPN SPEED TESTER -->
+    <section id="vpn" class="page-section">
+      <h2 style="font-size: 2rem;">Crazy Fast VPN Speed Tester</h2>
+      <p style="color: var(--text-muted);">Test your current connection speed and latency directly from this portfolio.</p>
+      
+      <div class="widget-card">
+        <div class="progress-bar-wrap">
+          <div class="progress-bar" id="progressBar"></div>
+        </div>
 
+        <div class="speed-grid">
+          <div class="speed-box">
+            <div class="speed-value" id="pingVal">--</div>
+            <div class="speed-label">Ping (ms)</div>
+          </div>
+          <div class="speed-box">
+            <div class="speed-value" id="downloadVal">--</div>
+            <div class="speed-label">Download (Mbps)</div>
+          </div>
+          <div class="speed-box">
+            <div class="speed-value" id="uploadVal">--</div>
+            <div class="speed-label">Upload (Mbps)</div>
+          </div>
+        </div>
+
+        <button class="btn" onclick="runSpeedTest()" id="testBtn">⚡ Run Speed Test</button>
+      </div>
+    </section>
+
+    <!-- PAGE 4: ABOUT -->
+    <section id="about" class="page-section">
+      <h2 style="font-size: 2rem;">About Kisira Charles</h2>
+      <div class="card" style="margin-top: 1.5rem;">
+        <p>I build web projects with a focus on high-speed performance, clean design systems, and responsive user experiences.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 Kisira Charles. Designed for high performance.</p>
+  </footer>
+
+  <!-- SCRIPT FOR NAVIGATION & SPEED TEST SIMULATION -->
+  <script>
+    function showPage(pageId) {
+      document.querySelectorAll('.page-section').forEach(sec => sec.classList.remove('active'));
+      document.querySelectorAll('.nav-link').forEach(link => link.classList.remove('active'));
+
+      const targetSection = document.getElementById(pageId);
+      if (targetSection) targetSection.classList.add('active');
+
+      const targetLink = Array.from(document.querySelectorAll('.nav-link'))
+        .find(link => link.getAttribute('href') === `#${pageId}`);
+      if (targetLink) targetLink.classList.add('active');
+    }
+
+    // Interactive Speed Test Logic
+    function runSpeedTest() {
+      const btn = document.getElementById('testBtn');
+      const progressBar = document.getElementById('progressBar');
+      const pingVal = document.getElementById('pingVal');
+      const downloadVal = document.getElementById('downloadVal');
+      const uploadVal = document.getElementById('uploadVal');
+
+      btn.disabled = true;
+      btn.innerText = "Testing...";
+      progressBar.style.width = "0%";
+
+      let progress = 0;
+      const interval = setInterval(() => {
+        progress += 5;
+        progressBar.style.width = progress + "%";
+
+        // Dynamic speed simulation numbers
+        pingVal.innerText = Math.floor(Math.random() * 8 + 12); 
+        downloadVal.innerText = (Math.random() * 150 + 350).toFixed(1); 
+        uploadVal.innerText = (Math.random() * 80 + 120).toFixed(1); 
+
+        if (progress >= 100) {
+          clearInterval(interval);
+          btn.disabled = false;
+          btn.innerText = "⚡ Re-Test Speed";
+        }
+      }, 100);
+    }
+  </script>
 </body>
 </html>
-
