@@ -309,14 +309,14 @@
                     <i class="fa-solid fa-envelope fa-xl"></i> Send Email
                 </a>
             </div>
-     <!-- Hidden iframe to capture the FormSubmit redirect behind the scenes -->
-<iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" onload="if(submitted) { showSuccess(); }"></iframe>
+     
+<form action="https://formsubmit.co/www.exotictunnel.xyz@gmail.com" method="POST" enctype="multipart/form-data" style="max-width: 500px; padding: 20px; font-family: sans-serif; background-color: #ffffff; border-radius: 8px;">
 
-<!-- Form targets the hidden iframe -->
-<form id="kisiraForm" action="https://formsubmit.co/YOUR_EMAIL@gmail.com" method="POST" enctype="multipart/form-data" target="hidden_iframe" style="max-width: 500px; padding: 20px; font-family: sans-serif; background-color: #ffffff; border: 1px solid #e0e0e0; border-radius: 8px;">
-
-  <!-- Disable Spam Bot Captcha -->
+  <!-- Disable Spam Bot Captcha (Optional) -->
   <input type="hidden" name="_captcha" value="false">
+
+  <!-- Custom Redirect Page After Submit (Optional) -->
+  <!-- <input type="hidden" name="_next" value="https://yourwebsite.com/thanks.html"> -->
 
   <div style="margin-bottom: 15px;">
     <label for="name" style="display: block; font-weight: bold; margin-bottom: 5px;">Name:</label>
@@ -348,34 +348,9 @@
     <textarea id="message" name="Message to KisiraCharles" rows="4" placeholder="Write your message here..." required style="width: 100%; padding: 8px; box-sizing: border-box;"></textarea>
   </div>
 
-  <button type="submit" id="submitBtn" onclick="submitted=true;" style="background-color: #007bff; color: white; padding: 10px 15px; border: none; border-radius: 4px; cursor: pointer; font-size: 16px;">Submit Form</button>
-
-  <p id="statusMessage" style="display: none; color: #28a745; font-weight: bold; margin-top: 15px;">Thank you! Your message and files have been sent successfully.</p>
+  <button type="submit" style="background-color: #007bff; color: white; padding: 10px 15px; border: none; border-radius: 4px; cursor: pointer; font-size: 16px;">Submit Form</button>
 
 </form>
-
-<script>
-  let submitted = false;
-
-  function showSuccess() {
-    const form = document.getElementById('kisiraForm');
-    const statusMessage = document.getElementById('statusMessage');
-    const submitBtn = document.getElementById('submitBtn');
-
-    form.reset();
-    submitBtn.innerText = "Submit Form";
-    submitBtn.disabled = false;
-    statusMessage.style.display = "block";
-    submitted = false;
-  }
-
-  document.getElementById('kisiraForm').addEventListener('submit', function() {
-    const submitBtn = document.getElementById('submitBtn');
-    submitBtn.innerText = "Sending files...";
-    submitBtn.disabled = true;
-  });
-</script>
-  
 
 
             <p>&copy; 2026 Kisira Charles. Built for fast & secure networking.</p>
