@@ -309,10 +309,42 @@
                     <i class="fa-solid fa-envelope fa-xl"></i> Send Email
                 </a>
             </div>
-        </div> 
+        <form action="https://formspree.io/f/YOUR_FORMSPREE_ID" method="POST" enctype="multipart/form-data" style="max-width: 500px; padding: 20px; font-family: sans-serif; background-color: #f9f9f9; border-radius: 8px;">
 
-      <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSf64_aSJub-eUgpYaY-LnC7Rw4vzti1Vre2pHvBW3GLBxs8kw/viewform?embedded=true" width="400" height="800" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>  
-        <footer>
+  <div style="margin-bottom: 15px;">
+    <label for="name" style="display: block; font-weight: bold; margin-bottom: 5px;">Name:</label>
+    <input type="text" id="name" name="Full Name" placeholder="Enter your full name" required style="width: 100%; padding: 8px; box-sizing: border-box;">
+  </div>
+
+  <div style="margin-bottom: 15px;">
+    <label for="contact" style="display: block; font-weight: bold; margin-bottom: 5px;">Contact:</label>
+    <input type="tel" id="contact" name="Phone Number" placeholder="Enter your phone number" required style="width: 100%; padding: 8px; box-sizing: border-box;">
+  </div>
+
+  <div style="margin-bottom: 15px;">
+    <label for="email" style="display: block; font-weight: bold; margin-bottom: 5px;">Email:</label>
+    <input type="email" id="email" name="Email Address" placeholder="Enter your email" required style="width: 100%; padding: 8px; box-sizing: border-box;">
+  </div>
+
+  <div style="margin-bottom: 15px;">
+    <label for="id_doc" style="display: block; font-weight: bold; margin-bottom: 5px;">Upload ID:</label>
+    <input type="file" id="id_doc" name="ID Document" required style="width: 100%;">
+  </div>
+
+  <div style="margin-bottom: 15px;">
+    <label for="profile_pic" style="display: block; font-weight: bold; margin-bottom: 5px;">Upload Profile Picture:</label>
+    <input type="file" id="profile_pic" name="Profile Picture" accept="image/*" required style="width: 100%;">
+  </div>
+
+  <div style="margin-bottom: 15px;">
+    <label for="message" style="display: block; font-weight: bold; margin-bottom: 5px;">Message to KisiraCharles:</label>
+    <textarea id="message" name="Message to KisiraCharles" rows="4" placeholder="Write your message here..." required style="width: 100%; padding: 8px; box-sizing: border-box;"></textarea>
+  </div>
+
+  <button type="submit" style="background-color: #007bff; color: white; padding: 10px 15px; border: none; border-radius: 4px; cursor: pointer; font-size: 16px;">Submit</button>
+
+</form>
+
             <p>&copy; 2026 Kisira Charles. Built for fast & secure networking.</p>
         </footer>
 
